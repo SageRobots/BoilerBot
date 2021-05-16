@@ -1,0 +1,159 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L dk_Encoders:PEC11R-4215F-S0024 S1
+U 1 1 60A07B58
+P 5550 4000
+F 0 "S1" H 5500 4372 60  0000 C CNN
+F 1 "PEC11R-4215F-S0024" H 5500 4266 60  0000 C CNN
+F 2 "digikey-footprints:Rotary_Encoder_Switched_PEC11R" H 5750 4200 60  0001 L CNN
+F 3 "https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf" H 5750 4300 60  0001 L CNN
+F 4 "PEC11R-4215F-S0024-ND" H 5750 4400 60  0001 L CNN "Digi-Key_PN"
+F 5 "PEC11R-4215F-S0024" H 5750 4500 60  0001 L CNN "MPN"
+F 6 "Sensors, Transducers" H 5750 4600 60  0001 L CNN "Category"
+F 7 "Encoders" H 5750 4700 60  0001 L CNN "Family"
+F 8 "https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf" H 5750 4800 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/bourns-inc/PEC11R-4215F-S0024/PEC11R-4215F-S0024-ND/4499665" H 5750 4900 60  0001 L CNN "DK_Detail_Page"
+F 10 "ROTARY ENCODER MECHANICAL 24PPR" H 5750 5000 60  0001 L CNN "Description"
+F 11 "Bourns Inc." H 5750 5100 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 5750 5200 60  0001 L CNN "Status"
+	1    5550 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR04
+U 1 1 60A08FD6
+P 5750 3900
+F 0 "#PWR04" H 5750 3650 50  0001 C CNN
+F 1 "GND" H 5755 3727 50  0000 C CNN
+F 2 "" H 5750 3900 50  0001 C CNN
+F 3 "" H 5750 3900 50  0001 C CNN
+	1    5750 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR03
+U 1 1 60A0996F
+P 4750 4100
+F 0 "#PWR03" H 4750 3850 50  0001 C CNN
+F 1 "GND" H 4755 3927 50  0000 C CNN
+F 2 "" H 4750 4100 50  0001 C CNN
+F 3 "" H 4750 4100 50  0001 C CNN
+	1    4750 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 4100 5250 4100
+Text GLabel 5250 3900 0    50   Input ~ 0
+PB
+Text GLabel 5250 4000 0    50   Input ~ 0
+A
+Text GLabel 5250 4200 0    50   Input ~ 0
+B
+$Comp
+L Connector:Conn_01x05_Male J1
+U 1 1 60A0A6F8
+P 3450 4100
+F 0 "J1" H 3558 4481 50  0000 C CNN
+F 1 "Conn_01x05_Male" H 3558 4390 50  0000 C CNN
+F 2 "Connector_JST:JST_PH_B5B-PH-K_1x05_P2.00mm_Vertical" H 3450 4100 50  0001 C CNN
+F 3 "~" H 3450 4100 50  0001 C CNN
+	1    3450 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR02
+U 1 1 60A0ACD5
+P 4000 3900
+F 0 "#PWR02" H 4000 3750 50  0001 C CNN
+F 1 "VCC" H 4015 4073 50  0000 C CNN
+F 2 "" H 4000 3900 50  0001 C CNN
+F 3 "" H 4000 3900 50  0001 C CNN
+	1    4000 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 3900 4000 3900
+$Comp
+L power:GND #PWR01
+U 1 1 60A0B3AC
+P 3650 4300
+F 0 "#PWR01" H 3650 4050 50  0001 C CNN
+F 1 "GND" H 3655 4127 50  0000 C CNN
+F 2 "" H 3650 4300 50  0001 C CNN
+F 3 "" H 3650 4300 50  0001 C CNN
+	1    3650 4300
+	1    0    0    -1  
+$EndComp
+Text GLabel 3650 4000 2    50   Input ~ 0
+PB
+Text GLabel 3650 4100 2    50   Input ~ 0
+A
+Text GLabel 3650 4200 2    50   Input ~ 0
+B
+$Comp
+L Device:R R1
+U 1 1 60A0C0F0
+P 6650 4000
+F 0 "R1" H 6720 4046 50  0000 L CNN
+F 1 "10K" H 6720 3955 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 6580 4000 50  0001 C CNN
+F 3 "~" H 6650 4000 50  0001 C CNN
+	1    6650 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR05
+U 1 1 60A0C7FA
+P 6650 3850
+F 0 "#PWR05" H 6650 3700 50  0001 C CNN
+F 1 "VCC" H 6665 4023 50  0000 C CNN
+F 2 "" H 6650 3850 50  0001 C CNN
+F 3 "" H 6650 3850 50  0001 C CNN
+	1    6650 3850
+	1    0    0    -1  
+$EndComp
+Text GLabel 6650 4200 0    50   Input ~ 0
+A
+Wire Wire Line
+	6650 4200 6650 4150
+$Comp
+L Device:R R2
+U 1 1 60A0DCE2
+P 7150 4000
+F 0 "R2" H 7220 4046 50  0000 L CNN
+F 1 "10K" H 7220 3955 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 7080 4000 50  0001 C CNN
+F 3 "~" H 7150 4000 50  0001 C CNN
+	1    7150 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR06
+U 1 1 60A0DCE8
+P 7150 3850
+F 0 "#PWR06" H 7150 3700 50  0001 C CNN
+F 1 "VCC" H 7165 4023 50  0000 C CNN
+F 2 "" H 7150 3850 50  0001 C CNN
+F 3 "" H 7150 3850 50  0001 C CNN
+	1    7150 3850
+	1    0    0    -1  
+$EndComp
+Text GLabel 7150 4200 0    50   Input ~ 0
+B
+Wire Wire Line
+	7150 4200 7150 4150
+$EndSCHEMATC
