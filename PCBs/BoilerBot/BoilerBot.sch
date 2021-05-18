@@ -32,15 +32,15 @@ Text GLabel 5200 3700 0    50   Input ~ 0
 SDA
 Text GLabel 5200 3800 0    50   Input ~ 0
 SCL
-Text GLabel 5200 3900 0    50   Input ~ 0
-UP
-Text GLabel 5200 4000 0    50   Input ~ 0
-DOWN
-Text GLabel 5200 4300 0    50   Input ~ 0
-MOT1
-Text GLabel 5200 4400 0    50   Input ~ 0
-MOT2
 Text GLabel 5200 4100 0    50   Input ~ 0
+UP
+Text GLabel 5200 4300 0    50   Input ~ 0
+DOWN
+Text GLabel 5200 3900 0    50   Input ~ 0
+MOT1
+Text GLabel 5200 4000 0    50   Input ~ 0
+MOT2
+Text GLabel 5200 4400 0    50   Input ~ 0
 TEMP
 Text GLabel 5900 4400 2    50   Input ~ 0
 HEAT
@@ -340,7 +340,7 @@ U 1 1 60A453A4
 P 4550 5900
 F 0 "C3" H 4668 5946 50  0000 L CNN
 F 1 "100U" H 4668 5855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4588 5750 50  0001 C CNN
+F 2 "Capacitor_SMD:CP_Elec_6.3x7.7" H 4588 5750 50  0001 C CNN
 F 3 "~" H 4550 5900 50  0001 C CNN
 	1    4550 5900
 	1    0    0    -1  
@@ -728,7 +728,7 @@ U 1 1 60A7181A
 P 6250 1850
 F 0 "K1" H 6680 1896 50  0000 L CNN
 F 1 "ADW11" H 6680 1805 50  0000 L CNN
-F 2 "Relay_THT:Relay_1P1T_NO_10x24x18.8mm_Panasonic_ADW11xxxxW_THT" H 7575 1800 50  0001 C CNN
+F 2 "BoilerBot:OMRON_G5PZ-1A" H 7575 1800 50  0001 C CNN
 F 3 "https://www.panasonic-electric-works.com/pew/es/downloads/ds_dw_hl_en.pdf" H 6250 1850 50  0001 C CNN
 	1    6250 1850
 	1    0    0    -1  

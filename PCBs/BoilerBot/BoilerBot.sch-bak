@@ -32,15 +32,15 @@ Text GLabel 5200 3700 0    50   Input ~ 0
 SDA
 Text GLabel 5200 3800 0    50   Input ~ 0
 SCL
-Text GLabel 5200 3900 0    50   Input ~ 0
-UP
-Text GLabel 5200 4000 0    50   Input ~ 0
-DOWN
-Text GLabel 5200 4300 0    50   Input ~ 0
-MOT1
-Text GLabel 5200 4400 0    50   Input ~ 0
-MOT2
 Text GLabel 5200 4100 0    50   Input ~ 0
+UP
+Text GLabel 5200 4300 0    50   Input ~ 0
+DOWN
+Text GLabel 5200 3900 0    50   Input ~ 0
+MOT1
+Text GLabel 5200 4000 0    50   Input ~ 0
+MOT2
+Text GLabel 5200 4400 0    50   Input ~ 0
 TEMP
 Text GLabel 5900 4400 2    50   Input ~ 0
 HEAT
@@ -106,7 +106,7 @@ U 1 1 60A39BC9
 P 3750 4100
 F 0 "U1" H 3750 4342 50  0000 C CNN
 F 1 "AZ1117-5.0" H 3750 4251 50  0000 C CNN
-F 2 "" H 3750 4350 50  0001 C CIN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 3750 4350 50  0001 C CIN
 F 3 "https://www.diodes.com/assets/Datasheets/AZ1117.pdf" H 3750 4100 50  0001 C CNN
 	1    3750 4100
 	1    0    0    -1  
@@ -228,7 +228,7 @@ U 1 1 60A3F0F5
 P 3800 5500
 F 0 "U2" H 3800 5915 50  0000 C CNN
 F 1 "TB67H451FNG,EL" H 3800 5824 50  0000 C CNN
-F 2 "" H 3800 5500 50  0001 C CNN
+F 2 "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm_ThermalVias" H 3800 5500 50  0001 C CNN
 F 3 "" H 3800 5500 50  0001 C CNN
 	1    3800 5500
 	1    0    0    -1  
@@ -340,7 +340,7 @@ U 1 1 60A453A4
 P 4550 5900
 F 0 "C3" H 4668 5946 50  0000 L CNN
 F 1 "100U" H 4668 5855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4588 5750 50  0001 C CNN
+F 2 "Capacitor_SMD:CP_Elec_6.3x7.7" H 4588 5750 50  0001 C CNN
 F 3 "~" H 4550 5900 50  0001 C CNN
 	1    4550 5900
 	1    0    0    -1  
