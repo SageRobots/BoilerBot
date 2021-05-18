@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name BoilerBot)(type KiCad)(uri C:/Projects/BoilerBot/PCBs/BoilerBot.pretty)(options "")(descr ""))
+)
