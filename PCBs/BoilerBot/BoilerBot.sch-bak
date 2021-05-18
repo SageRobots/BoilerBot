@@ -739,30 +739,4 @@ Text GLabel 6450 2150 2    50   Input ~ 0
 L
 Text GLabel 6550 1550 2    50   Input ~ 0
 LA
-$Comp
-L Connector:Screw_Terminal_01x03 J?
-U 1 1 60A76B57
-P 7550 1900
-F 0 "J?" H 7630 1942 50  0000 L CNN
-F 1 "Screw_Terminal_01x03" H 7630 1851 50  0000 L CNN
-F 2 "" H 7550 1900 50  0001 C CNN
-F 3 "~" H 7550 1900 50  0001 C CNN
-	1    7550 1900
-	1    0    0    -1  
-$EndComp
-Text GLabel 7350 1900 0    50   Input ~ 0
-N
-$Comp
-L power:GND #PWR?
-U 1 1 60A76B5F
-P 7350 2000
-F 0 "#PWR?" H 7350 1750 50  0001 C CNN
-F 1 "GND" H 7355 1827 50  0000 C CNN
-F 2 "" H 7350 2000 50  0001 C CNN
-F 3 "" H 7350 2000 50  0001 C CNN
-	1    7350 2000
-	1    0    0    -1  
-$EndComp
-Text GLabel 7350 1800 0    50   Input ~ 0
-LA
 $EndSCHEMATC
