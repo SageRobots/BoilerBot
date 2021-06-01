@@ -7,23 +7,23 @@ const int pinEncA = 1;
 const int pinEncB = 0;
 const int pinSDA = 2;
 const int pinSCL = 3;
-const int pinUp = 4;
-const int pinDown = 5;
-const int pinMot1 = 6;
-const int pinMot2 = 7;
-const int pinData = 8;
-const int pinHeat = 9;
-const int pinBut = 10;
+const int pinUp = 6;
+const int pinDown = 8;
+const int pinMot1 = 4;
+const int pinMot2 = 5;
+const int pinTemp = 9;
+const int pinHeat = 10;
+const int pinButton = 7;
 const int pinBuzz = 16;
 
-OneWire oneWire(pinData); 
+OneWire oneWire(pinTemp); 
 DallasTemperature sensors(&oneWire);
 
 int step = 0;
-int tempSet = 100;
+int tempSet = 95;
 float tempNow;
 int timeMin = 5;
-int timeSec = 10;
+int timeSec = 0;
 int timeLeftMin;
 int timeLeftSec;
 unsigned long timeStart;
@@ -31,11 +31,17 @@ unsigned long timeTotal;
 unsigned long timeLeft;
 unsigned long timeRelay = 0;
 unsigned long timeNow;
-unsigned long timeDebouce = 0;
-unsigned long timeEncoder = 0;
-volatile bool encoderUp = false;
-volatile bool encoderDown = false;
-bool buttonPressed;
+unsigned long timeDebounceA = 0;
+unsigned long timeDebounceB = 0;
+unsigned long timeDebounceButton = 0;
+unsigned long timeTemp = 0;
+bool encoderUp = false;
+bool encoderDown = false;
+bool encANow, encALast, encAStable;
+bool encBNow, encBLast, encBStable;
+bool buttonNow, buttonLast, buttonStable;
+int debounceDelay = 5;
+int tempTolerance = 3;
 
 void setup() {
   lcd.init();
@@ -49,25 +55,19 @@ void setup() {
   pinMode(pinHeat, OUTPUT);
   pinMode(pinMot1, OUTPUT);
   pinMode(pinMot2, OUTPUT);
-  pinMode(pinUp, INPUT_PULLUP);
-  pinMode(pinDown, INPUT_PULLUP);
-  pinMode(pinBut, INPUT_PULLUP);
-  pinMode(pinEncA, INPUT_PULLUP);
-  pinMode(pinEncB, INPUT_PULLUP);
+  pinMode(pinUp, INPUT);
+  pinMode(pinDown, INPUT);
+  pinMode(pinButton, INPUT_PULLUP);
+  pinMode(pinEncA, INPUT);
+  pinMode(pinEncB, INPUT);
   //attach interrupt to button and encA
-  attachInterrupt(digitalPinToInterrupt(pinEncA), encoder, FALLING);
+//  attachInterrupt(digitalPinToInterrupt(pinEncB), encoder, FALLING);
 }
 
 void loop() {
-  //run this every loop
   timeNow = millis();
-  if(digitalRead(pinBut) ) {
-    buttonPressed = false;
-  }
-  if(!digitalRead(pinBut) && timeNow-timeDebouce > 500) {
-    buttonPressed = true;
-    timeDebouce = timeNow;
-  }
+  encoder();
+  button();
 
   //execution steps
   switch (step) {
@@ -114,13 +114,18 @@ void loop() {
         }
         encoderDown = false;
       }
-      if(buttonPressed) {
-        buttonPressed = false;
-        step = 20;
+      if(!buttonStable) {
+        step = 19;
       }
       lcd.setCursor(14,0);
       lcd.print(tempSet);
       lcd.print(" ");
+      break;
+
+    case 19: //button release
+      if(buttonStable) {
+        step = 20;
+      }
       break;
 
     case 20: //prompt time
@@ -168,8 +173,7 @@ void loop() {
         lcd.print(timeSec);
       }
       timeTotal = 1000UL*(timeMin*60 + timeSec);
-      if(buttonPressed) {
-        buttonPressed = false;
+      if(!buttonStable) {
         step = 40;
       }
       break;
@@ -187,17 +191,15 @@ void loop() {
       delay(50);
       lcd.print(tempNow);
       //turn hot plate on if under temp
-      if (tempNow <= tempSet-5) {
+      if (tempNow <= tempSet-tempTolerance) {
         digitalWrite(pinHeat, HIGH);
       } else {
         step = 60;
-        delay(50);
       }
       break;
 
     case 60: //clear heating status, lower food
       lcd.setCursor(0,2);
-      delay(50);
       lcd.print("                    ");
       timeStart = millis();
       digitalWrite(pinMot1, LOW);
@@ -222,13 +224,15 @@ void loop() {
       break;
 
     case 70: //maintain temperature
-      sensors.requestTemperatures();
-      tempNow = sensors.getTempCByIndex(0);
+      if(timeNow - timeTemp > 3000) {
+        sensors.requestTemperatures();
+        tempNow = sensors.getTempCByIndex(0);
+        timeTemp = timeNow;
+      }
       lcd.setCursor(0,2);
       lcd.print(tempNow);
       lcd.print("C");
       lcd.print("  ");
-      timeNow = millis();
       //compute time left
       timeLeft = timeTotal-(timeNow-timeStart);
       //convert to whole seconds
@@ -254,7 +258,7 @@ void loop() {
           if(tempNow >= tempSet) {
             digitalWrite(pinHeat, LOW);
             timeRelay = timeNow;
-          } else if (tempNow <= tempSet-5) {
+          } else if (tempNow <= tempSet-tempTolerance) {
             digitalWrite(pinHeat, HIGH);
             timeRelay = timeNow;
           }
@@ -292,12 +296,52 @@ void loop() {
 }
 
 void encoder() {
-  if(timeNow-timeEncoder > 100) {
-    if(digitalRead(pinEncB)) {
-      encoderDown = true;
-    } else {
-      encoderUp = true;
-    }
-    timeEncoder = timeNow;
+  encANow = digitalRead(pinEncA);
+  encBNow = digitalRead(pinEncB);
+  if (encANow != encALast) {
+    timeDebounceA = timeNow;
   }
+  if(encBNow != encBLast) {
+    timeDebounceB = timeNow;
+  }
+  if ((timeNow - timeDebounceA) > debounceDelay) {
+    if (encANow != encAStable) {
+      encAStable = encANow;
+      // if new state is low, this is a falling edge
+      if(!encAStable) {
+        if (encBStable) {
+          encoderUp = true;
+        } else {
+          encoderDown = true;
+        }
+      }
+    }
+  }
+  if ((timeNow - timeDebounceB) > debounceDelay) {
+    if (encBNow != encBStable) {
+      encBStable = encBNow;
+      if(encBStable) {
+        if (encAStable) {
+          encoderUp = true;
+        } else {
+          encoderDown = true;
+        }
+      }
+    }
+  }
+  encALast = encANow;
+  encBLast = encBNow;
+}
+
+void button() {
+  buttonNow = digitalRead(pinButton);
+  if (buttonNow != buttonLast) {
+    timeDebounceButton = timeNow;
+  }
+  if ((timeNow - timeDebounceButton) > debounceDelay) {
+    if (buttonNow != buttonStable) {
+      buttonStable = buttonNow;
+    }
+  }
+  buttonLast = buttonNow;
 }
