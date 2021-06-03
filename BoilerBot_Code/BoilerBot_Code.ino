@@ -40,7 +40,7 @@ bool encoderDown = false;
 bool encANow, encALast, encAStable;
 bool encBNow, encBLast, encBStable;
 bool buttonNow, buttonLast, buttonStable;
-int debounceDelay = 5;
+int debounceDelay = 3;
 int tempTolerance = 3;
 
 void setup() {
@@ -55,8 +55,8 @@ void setup() {
   pinMode(pinHeat, OUTPUT);
   pinMode(pinMot1, OUTPUT);
   pinMode(pinMot2, OUTPUT);
-  pinMode(pinUp, INPUT);
-  pinMode(pinDown, INPUT);
+  pinMode(pinUp, INPUT_PULLUP);
+  pinMode(pinDown, INPUT_PULLUP);
   pinMode(pinButton, INPUT_PULLUP);
   pinMode(pinEncA, INPUT);
   pinMode(pinEncB, INPUT);
@@ -162,6 +162,9 @@ void loop() {
             timeSec = 10;
           }
         }
+        if (timeSec == 0 && timeMin == 0) {
+          timeSec = 10;
+        }
         encoderDown = false;
       }
       lcd.setCursor(10,1);
@@ -194,6 +197,8 @@ void loop() {
       if (tempNow <= tempSet-tempTolerance) {
         digitalWrite(pinHeat, HIGH);
       } else {
+        digitalWrite(pinHeat, LOW);
+        delay(100);
         step = 60;
       }
       break;
