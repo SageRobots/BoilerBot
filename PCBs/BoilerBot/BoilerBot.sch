@@ -75,32 +75,6 @@ $EndComp
 Wire Wire Line
 	4800 3600 5200 3600
 $Comp
-L Connector:Screw_Terminal_01x03 J3
-U 1 1 60A388DD
-P 3650 3200
-F 0 "J3" H 3730 3242 50  0000 L CNN
-F 1 "Screw_Terminal_01x03" H 3730 3151 50  0000 L CNN
-F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-3-5.0-H_1x03_P5.00mm_Horizontal" H 3650 3200 50  0001 C CNN
-F 3 "~" H 3650 3200 50  0001 C CNN
-	1    3650 3200
-	1    0    0    -1  
-$EndComp
-Text GLabel 3450 3100 0    50   Input ~ 0
-L
-Text GLabel 3450 3200 0    50   Input ~ 0
-N
-$Comp
-L power:GND #PWR0103
-U 1 1 60A38B35
-P 3450 3300
-F 0 "#PWR0103" H 3450 3050 50  0001 C CNN
-F 1 "GND" H 3455 3127 50  0000 C CNN
-F 2 "" H 3450 3300 50  0001 C CNN
-F 3 "" H 3450 3300 50  0001 C CNN
-	1    3450 3300
-	1    0    0    -1  
-$EndComp
-$Comp
 L Regulator_Linear:AZ1117-5.0 U1
 U 1 1 60A39BC9
 P 3750 4100
@@ -109,17 +83,6 @@ F 1 "AZ1117-5.0" H 3750 4251 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 3750 4350 50  0001 C CIN
 F 3 "https://www.diodes.com/assets/Datasheets/AZ1117.pdf" H 3750 4100 50  0001 C CNN
 	1    3750 4100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J1
-U 1 1 60A3A32A
-P 2600 3700
-F 0 "J1" H 2680 3692 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 2680 3601 50  0000 L CNN
-F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal" H 2600 3700 50  0001 C CNN
-F 3 "~" H 2600 3700 50  0001 C CNN
-	1    2600 3700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -197,32 +160,6 @@ $EndComp
 Wire Wire Line
 	4100 4100 4050 4100
 $Comp
-L Connector:Screw_Terminal_01x03 J2
-U 1 1 60A3E6B1
-P 3650 2600
-F 0 "J2" H 3730 2642 50  0000 L CNN
-F 1 "Screw_Terminal_01x03" H 3730 2551 50  0000 L CNN
-F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-3-5.0-H_1x03_P5.00mm_Horizontal" H 3650 2600 50  0001 C CNN
-F 3 "~" H 3650 2600 50  0001 C CNN
-	1    3650 2600
-	1    0    0    -1  
-$EndComp
-Text GLabel 3450 2500 0    50   Input ~ 0
-L
-Text GLabel 3450 2600 0    50   Input ~ 0
-N
-$Comp
-L power:GND #PWR0109
-U 1 1 60A3E6B9
-P 3450 2700
-F 0 "#PWR0109" H 3450 2450 50  0001 C CNN
-F 1 "GND" H 3455 2527 50  0000 C CNN
-F 2 "" H 3450 2700 50  0001 C CNN
-F 3 "" H 3450 2700 50  0001 C CNN
-	1    3450 2700
-	1    0    0    -1  
-$EndComp
-$Comp
 L BoilerBot:TB67H451FNG,EL U2
 U 1 1 60A3F0F5
 P 3800 5500
@@ -266,7 +203,7 @@ L Device:R R1
 U 1 1 60A41B8B
 P 2400 5450
 F 0 "R1" H 2470 5496 50  0000 L CNN
-F 1 "3.3K" H 2470 5405 50  0000 L CNN
+F 1 "10k" H 2470 5405 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 2330 5450 50  0001 C CNN
 F 3 "~" H 2400 5450 50  0001 C CNN
 	1    2400 5450
@@ -389,23 +326,6 @@ Connection ~ 4550 5750
 Wire Wire Line
 	4150 6050 4550 6050
 Connection ~ 4550 6050
-$Comp
-L Connector:Screw_Terminal_01x02 J4
-U 1 1 60A4B537
-P 4700 5350
-F 0 "J4" H 4780 5342 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 4780 5251 50  0000 L CNN
-F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal" H 4700 5350 50  0001 C CNN
-F 3 "~" H 4700 5350 50  0001 C CNN
-	1    4700 5350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4150 5350 4500 5350
-Wire Wire Line
-	4500 5450 4400 5450
-Wire Wire Line
-	4400 5450 4400 5550
 Wire Wire Line
 	4400 5550 4150 5550
 Text GLabel 5150 5750 0    50   Input ~ 0
@@ -687,7 +607,7 @@ F 3 "" H 4300 6850 50  0001 C CNN
 	1    4300 6850
 	1    0    0    -1  
 $EndComp
-Text GLabel 4000 7200 0    50   Input ~ 0
+Text GLabel 3700 7200 0    50   Input ~ 0
 BUZZ
 $Comp
 L power:GND #PWR0129
@@ -712,17 +632,6 @@ F 3 "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF" H 5950 2350 50  0001 
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5V #PWR0130
-U 1 1 60A70017
-P 6050 1550
-F 0 "#PWR0130" H 6050 1400 50  0001 C CNN
-F 1 "+5V" H 6065 1723 50  0000 C CNN
-F 2 "" H 6050 1550 50  0001 C CNN
-F 3 "" H 6050 1550 50  0001 C CNN
-	1    6050 1550
-	1    0    0    -1  
-$EndComp
-$Comp
 L Relay:ADW11 K1
 U 1 1 60A7181A
 P 6250 1850
@@ -733,36 +642,101 @@ F 3 "https://www.panasonic-electric-works.com/pew/es/downloads/ds_dw_hl_en.pdf" 
 	1    6250 1850
 	1    0    0    -1  
 $EndComp
-Text GLabel 5750 2350 0    50   Input ~ 0
+Text GLabel 5450 2350 0    50   Input ~ 0
 HEAT
 Text GLabel 6450 2150 2    50   Input ~ 0
 L
 Text GLabel 6550 1550 2    50   Input ~ 0
 LA
 $Comp
-L Connector:Screw_Terminal_01x03 J8
-U 1 1 60A76B57
-P 7550 1900
-F 0 "J8" H 7630 1942 50  0000 L CNN
-F 1 "Screw_Terminal_01x03" H 7630 1851 50  0000 L CNN
-F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-3-5.0-H_1x03_P5.00mm_Horizontal" H 7550 1900 50  0001 C CNN
-F 3 "~" H 7550 1900 50  0001 C CNN
-	1    7550 1900
-	1    0    0    -1  
+L Connector:Conn_01x02_Male J1
+U 1 1 60BA5CAB
+P 2600 3800
+F 0 "J1" H 2572 3682 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 2572 3773 50  0000 R CNN
+F 2 "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical" H 2600 3800 50  0001 C CNN
+F 3 "~" H 2600 3800 50  0001 C CNN
+	1    2600 3800
+	-1   0    0    1   
 $EndComp
-Text GLabel 7350 1900 0    50   Input ~ 0
-N
 $Comp
-L power:GND #PWR0131
-U 1 1 60A76B5F
-P 7350 2000
-F 0 "#PWR0131" H 7350 1750 50  0001 C CNN
-F 1 "GND" H 7355 1827 50  0000 C CNN
-F 2 "" H 7350 2000 50  0001 C CNN
-F 3 "" H 7350 2000 50  0001 C CNN
-	1    7350 2000
+L Connector:Conn_01x02_Male J2
+U 1 1 60BA6DAD
+P 4700 5450
+F 0 "J2" H 4672 5332 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 4672 5423 50  0000 R CNN
+F 2 "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical" H 4700 5450 50  0001 C CNN
+F 3 "~" H 4700 5450 50  0001 C CNN
+	1    4700 5450
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 60BA7242
+P 5600 2350
+F 0 "R6" H 5670 2396 50  0000 L CNN
+F 1 "100" H 5670 2305 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5530 2350 50  0001 C CNN
+F 3 "~" H 5600 2350 50  0001 C CNN
+	1    5600 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+12V #PWR01
+U 1 1 60BA83B8
+P 6050 1550
+F 0 "#PWR01" H 6050 1400 50  0001 C CNN
+F 1 "+12V" H 6065 1723 50  0000 C CNN
+F 2 "" H 6050 1550 50  0001 C CNN
+F 3 "" H 6050 1550 50  0001 C CNN
+	1    6050 1550
 	1    0    0    -1  
 $EndComp
-Text GLabel 7350 1800 0    50   Input ~ 0
-LA
+$Comp
+L Device:R R5
+U 1 1 60BA8BA1
+P 3850 7200
+F 0 "R5" H 3920 7246 50  0000 L CNN
+F 1 "100" H 3920 7155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 7200 50  0001 C CNN
+F 3 "~" H 3850 7200 50  0001 C CNN
+	1    3850 7200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4400 5350 4500 5350
+Wire Wire Line
+	4400 5350 4400 5550
+Wire Wire Line
+	4150 5350 4350 5350
+Wire Wire Line
+	4350 5350 4350 5450
+Wire Wire Line
+	4350 5450 4500 5450
+$Comp
+L Connector:Conn_01x01_Male J3
+U 1 1 60BC6E65
+P 6650 2300
+F 0 "J3" H 6622 2232 50  0000 R CNN
+F 1 "Conn_01x01_Male" H 6622 2323 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-2sqmm_1x01_D2mm_OD3.9mm" H 6650 2300 50  0001 C CNN
+F 3 "~" H 6650 2300 50  0001 C CNN
+	1    6650 2300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6450 2150 6450 2300
+$Comp
+L Connector:Conn_01x01_Male J4
+U 1 1 60BC8607
+P 6750 1400
+F 0 "J4" H 6722 1332 50  0000 R CNN
+F 1 "Conn_01x01_Male" H 6722 1423 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-2sqmm_1x01_D2mm_OD3.9mm" H 6750 1400 50  0001 C CNN
+F 3 "~" H 6750 1400 50  0001 C CNN
+	1    6750 1400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6550 1550 6550 1400
 $EndSCHEMATC

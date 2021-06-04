@@ -3,3 +3,5 @@ PCBs/Encoder/Encoder.kicad_pcb-bak
 PCBs/Encoder/Encoder.sch-bak
 PCBs/Magnetic_Switch/Magnetic_Switch.kicad_pcb-bak
 PCBs/Magnetic_Switch/Magnetic_Switch.sch-bak
+*.kicad_pcb-bak
+*.sch-bak
