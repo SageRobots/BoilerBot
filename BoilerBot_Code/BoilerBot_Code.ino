@@ -34,12 +34,17 @@ unsigned long timeNow;
 unsigned long timeDebounceA = 0;
 unsigned long timeDebounceB = 0;
 unsigned long timeDebounceButton = 0;
+unsigned long timeDebounceDown = 0;
+unsigned long timeDebounceUp = 0;
 unsigned long timeTemp = 0;
 bool encoderUp = false;
 bool encoderDown = false;
 bool encANow, encALast, encAStable;
 bool encBNow, encBLast, encBStable;
 bool buttonNow, buttonLast, buttonStable;
+bool downNow, downLast;
+bool upNow, upLast;
+volatile bool upStable, downStable;
 int debounceDelay = 3;
 int tempTolerance = 3;
 
@@ -60,21 +65,36 @@ void setup() {
   pinMode(pinButton, INPUT_PULLUP);
   pinMode(pinEncA, INPUT);
   pinMode(pinEncB, INPUT);
-  //attach interrupt to button and encA
-//  attachInterrupt(digitalPinToInterrupt(pinEncB), encoder, FALLING);
+  upStable = 1;
+  downStable = 1;
 }
 
 void loop() {
   timeNow = millis();
   encoder();
   button();
+  downSensor();
+  upSensor();
+//  debug();
+  execute();
+}
 
+void debug() {
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print(digitalRead(pinUp));
+  lcd.print(digitalRead(pinDown));
+  lcd.print(downStable);
+  delay(1000);
+}
+
+void execute() {
   //execution steps
   switch (step) {
     case 0: //raise to upper limit
       lcd.clear();
       timeStart = millis();
-      while(digitalRead(pinUp)) {
+      while(upSensor()) {
         digitalWrite(pinMot1, HIGH);
         digitalWrite(pinMot2, LOW);
         timeNow = millis();
@@ -209,7 +229,7 @@ void loop() {
       timeStart = millis();
       digitalWrite(pinMot1, LOW);
       digitalWrite(pinMot2, HIGH);
-      while(digitalRead(pinDown)) {
+      while(downSensor()) {
         timeNow = millis();
         if(timeNow - timeStart > 20000) {
           //timeout error
@@ -349,4 +369,28 @@ void button() {
     }
   }
   buttonLast = buttonNow;
+}
+
+bool downSensor() {
+  downNow = digitalRead(pinDown);
+  if (downNow != downLast) {
+    timeDebounceDown = timeNow;
+  }
+  if ((timeNow - timeDebounceDown) > 3) {
+    downStable = downNow;
+  }
+  downLast = downNow;
+  return downStable;
+}
+
+bool upSensor() {
+  upNow = digitalRead(pinUp);
+  if (upNow != upLast) {
+    timeDebounceUp = timeNow;
+  }
+  if ((timeNow - timeDebounceUp) > 3) {
+    upStable = upNow;
+  }
+  upLast = upNow;
+  return upStable;
 }
