@@ -30,7 +30,7 @@ U 1 1 60A09FF1
 P 5100 3850
 F 0 "J1" H 5208 4131 50  0000 C CNN
 F 1 "Conn_01x03_Male" H 5208 4040 50  0000 C CNN
-F 2 "Connector_Hirose:Hirose_DF3EA-03P-2H_1x03-1MP_P2.00mm_Horizontal" H 5100 3850 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5100 3850 50  0001 C CNN
 F 3 "~" H 5100 3850 50  0001 C CNN
 	1    5100 3850
 	1    0    0    -1  
