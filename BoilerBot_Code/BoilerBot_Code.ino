@@ -63,8 +63,8 @@ void setup() {
   pinMode(pinUp, INPUT_PULLUP);
   pinMode(pinDown, INPUT_PULLUP);
   pinMode(pinButton, INPUT_PULLUP);
-  pinMode(pinEncA, INPUT);
-  pinMode(pinEncB, INPUT);
+  pinMode(pinEncA, INPUT_PULLUP);
+  pinMode(pinEncB, INPUT_PULLUP);
   upStable = 1;
   downStable = 1;
 }
