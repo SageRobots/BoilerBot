@@ -1,8 +1,12 @@
-(kicad_pcb (version 20171130) (host pcbnew "(5.1.9)-1")
+(kicad_pcb (version 20171130) (host pcbnew "(5.1.10)-1")
 
   (general
     (thickness 1.6)
+<<<<<<< Updated upstream
     (drawings 15)
+=======
+    (drawings 11)
+>>>>>>> Stashed changes
     (tracks 15)
     (zones 0)
     (modules 2)
@@ -189,6 +193,7 @@
     )
   )
 
+<<<<<<< Updated upstream
   (dimension 9.5 (width 0.15) (layer Dwgs.User)
     (gr_text "9.500 mm" (at 162.6152 104.25 90) (layer Dwgs.User)
       (effects (font (size 0.8128 0.8128) (thickness 0.1524)))
@@ -248,6 +253,10 @@
     (arrow1b (pts (xy 127.75 109) (xy 128.336421 107.873496)))
     (arrow2a (pts (xy 127.75 84) (xy 127.163579 85.126504)))
     (arrow2b (pts (xy 127.75 84) (xy 128.336421 85.126504)))
+=======
+  (gr_text "SAGE ROBOTS\nMAG_SWITCH_1V0" (at 137 102 90) (layer F.SilkS)
+    (effects (font (size 0.8128 0.8128) (thickness 0.1524)))
+>>>>>>> Stashed changes
   )
   (gr_text GND (at 140.97 106.045) (layer F.SilkS) (tstamp 60A42253)
     (effects (font (size 0.8128 0.8128) (thickness 0.1524)))
